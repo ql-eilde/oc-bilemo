@@ -2,6 +2,9 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
 products:
     type: rest
     resource: AppBundle\Controller\ProductController

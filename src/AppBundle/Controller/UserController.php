@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use FOS\UserBundle\Form\Type\RegistrationFormType;
 use FOS\RestBundle\View\View;
 
 class UserController extends Controller
@@ -40,7 +39,7 @@ class UserController extends Controller
         $manip = $this->get('fos_user.util.user_manipulator');
 
         if(!empty($request->get('username')) && !empty($request->get('email')) && !empty($request->get('password'))){
-            $manip->create($request->get('username'), $request->get('email'), $request->get('password'), 1);
+            $manip->create($request->get('username'), $request->get('email'), $request->get('password'), 1, null);
             return View::create(['message' => 'User created']);
         } else {
             return View::create(['message' => 'Something went wrong, please try again'], Response::HTTP_BAD_REQUEST);

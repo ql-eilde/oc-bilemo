@@ -18,12 +18,14 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-        main:
+        oauth_token:
+            pattern: ^/oauth/v2/token
+            security: false
+        api:
             pattern: ^/
-            form_login:
-                provider: fos_userbundle
-            anonymous: true
+            fos_oauth: true
+            stateless: true
+            anonymous: false
             # activate different ways to authenticate
 
             # http_basic: ~
