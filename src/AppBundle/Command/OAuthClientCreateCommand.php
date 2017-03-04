@@ -2,11 +2,11 @@
 
 namespace AppBundle\Command;
 
-use Symfony\Component\Console\Command\Command;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class OAuthClientCreateCommand extends Command
+class OAuthClientCreateCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
@@ -19,7 +19,7 @@ class OAuthClientCreateCommand extends Command
     {
         $clientManager = $this->getApplication()->getKernel()->getContainer()->get('fos_oauth_server.client_manager.default');
         $client = $clientManager->createClient();
-        $client->setRedirectUris(array('http://localhost:8888/OC/Projet7/bilemo/web/app.php'));
+        $client->setRedirectUris(array($this->getContainer()->get('kernel')->getRootDir()));
         $client->setAllowedGrantTypes(array('password', 'refresh_token'));
         $clientManager->updateClient($client);
         $output->writeln(sprintf('Added a new client with public id <info>%s</info>.', $client->getPublicId()));

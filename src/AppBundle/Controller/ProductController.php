@@ -25,7 +25,7 @@ class ProductController extends Controller
         $product = $this->getDoctrine()->getManager()->getRepository('AppBundle:Product')->find($id);
 
         if(empty($product)){
-            return View::create(['message' => 'Place not found'], Response::HTTP_NOT_FOUND);
+            return View::create(['message' => 'Product not found'], Response::HTTP_NOT_FOUND);
         }
 
         return $product;
