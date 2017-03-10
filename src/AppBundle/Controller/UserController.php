@@ -7,10 +7,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\View\View;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class UserController extends Controller
 {
     /**
+     * @ApiDoc(
+     *     description="Récupère la liste des utilisateurs",
+     *     output="AppBundle\Entity\User"
+     * )
      * @Rest\View(statusCode=Response::HTTP_OK)
      */
     public function getUsersAction(){
@@ -20,6 +25,18 @@ class UserController extends Controller
     }
 
     /**
+     * @ApiDoc(
+     *     description="Récupère le détail d'un utilisateur",
+     *     requirements={
+     *          {
+     *              "name"="id",
+     *              "dataType"="integer",
+     *              "requirement"="\d+",
+     *              "description"="Identifiant unique de l'utilisateur"
+     *          }
+     *     },
+     *     output="AppBundle\Entity\User"
+     * )
      * @Rest\View(statusCode=Response::HTTP_OK)
      */
     public function getUserAction($id){
@@ -33,6 +50,32 @@ class UserController extends Controller
     }
 
     /**
+     * @ApiDoc(
+     *     description="Création d'un utilisateur",
+     *     parameters={
+     *          {
+     *              "name"="username",
+     *              "dataType"="string",
+     *              "required"="true",
+     *              "format"="{not blank}, {length: min: 2, max: 180}",
+     *              "description"="Saisir un nom d'utilisateur"
+     *          },
+     *          {
+     *              "name"="email",
+     *              "dataType"="string",
+     *              "required"="true",
+     *              "format"="{not blank}, {length: min: 2, max: 180}, {email address}",
+     *              "description"="Saisir un email"
+     *          },
+     *          {
+     *              "name"="password",
+     *              "dataType"="",
+     *              "required"="true",
+     *              "format"="{not blank}, {length: min: 2, max: 4096}",
+     *              "description"="Saisir un mot de passe"
+     *          }
+     *     },
+     * )
      * @Rest\View(statusCode=Response::HTTP_CREATED)
      */
     public function postUsersAction(Request $request){

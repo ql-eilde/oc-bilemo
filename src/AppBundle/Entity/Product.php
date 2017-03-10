@@ -15,6 +15,9 @@ use Hateoas\Configuration\Annotation as Hateoas;
 class Product
 {
     /**
+     *
+     * Identifiant unique du produit
+     *
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -24,6 +27,9 @@ class Product
     private $id;
 
     /**
+     *
+     * Marque du mobile
+     *
      * @var string
      *
      * @ORM\Column(name="brand", type="string", length=255)
@@ -31,6 +37,9 @@ class Product
     private $brand;
 
     /**
+     *
+     * Modèle de la marque du mobile
+     *
      * @var string
      *
      * @ORM\Column(name="model", type="string", length=255)
@@ -38,6 +47,9 @@ class Product
     private $model;
 
     /**
+     *
+     * Capacité de stockage
+     *
      * @var string
      *
      * @ORM\Column(name="capacity", type="string", length=255, nullable=true)
@@ -45,6 +57,9 @@ class Product
     private $capacity;
 
     /**
+     *
+     * Couleur du mobile
+     *
      * @var string
      *
      * @ORM\Column(name="color", type="string", length=255, nullable=true)
@@ -52,6 +67,9 @@ class Product
     private $color;
 
     /**
+     *
+     * Description du mobile
+     *
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)
@@ -59,6 +77,9 @@ class Product
     private $description;
 
     /**
+     *
+     * Prix du mobile
+     *
      * @var float
      *
      * @ORM\Column(name="price", type="float")
@@ -66,6 +87,9 @@ class Product
     private $price;
 
     /**
+     *
+     * Quantité disponible
+     *
      * @var int
      *
      * @ORM\Column(name="quantity", type="integer")
@@ -73,6 +97,9 @@ class Product
     private $quantity;
 
     /**
+     *
+     * Date de création de la fiche produit
+     *
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
@@ -80,6 +107,9 @@ class Product
     private $createdAt;
 
     /**
+     *
+     * Date de dernière modification de la fiche produit
+     *
      * @var \DateTime
      *
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)

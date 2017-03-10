@@ -101,3 +101,8 @@ fos_oauth_server:
     auth_code_class: AppBundle\Entity\AuthCode
     service:
         user_provider: fos_user.user_provider.username
+
+nelmio_api_doc:
+    name: Bilemo API
+    sandbox:
+        enabled: false
