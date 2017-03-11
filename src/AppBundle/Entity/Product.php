@@ -116,6 +116,10 @@ class Product
      */
     private $updatedAt;
 
+    public function __construct()
+    {
+        $this->createdAt = new \Datetime();
+    }
 
     /**
      * Get id
