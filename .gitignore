@@ -12,7 +12,7 @@
 /var/sessions/*
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
-!var/bootstrap.php.cache
 /vendor/
 /web/bundles/
 /.idea/
+/composer.lock
