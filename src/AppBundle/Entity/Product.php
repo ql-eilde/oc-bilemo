@@ -9,7 +9,7 @@ use Hateoas\Configuration\Annotation as Hateoas;
  * Product
  *
  * @ORM\Table(name="products")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
  * @Hateoas\Relation("self", href = "expr('/products/' ~ object.getId())")
  */
