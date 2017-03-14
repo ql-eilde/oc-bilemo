@@ -6,7 +6,7 @@ This is the public repository of my 7th project on OpenClassrooms. The goal of t
 # Installation
 ## 1. Récupérer le code
 
-1. Via Git en clonant ce dépôt ;
+1. Via Git en clonant ce dépôt.
 
 ## 2. Télécharger les vendors et définir les paramètres d'application
 Avec Composer bien évidemment :
