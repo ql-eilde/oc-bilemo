@@ -9,7 +9,8 @@ use Hateoas\Configuration\Annotation as Hateoas;
  * Product
  *
  * @ORM\Table(name="products")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  * @Hateoas\Relation("self", href = "expr('/products/' ~ object.getId())")
  */
 class Product
@@ -116,6 +117,10 @@ class Product
      */
     private $updatedAt;
 
+    public function __construct()
+    {
+        $this->createdAt = new \Datetime();
+    }
 
     /**
      * Get id
@@ -341,6 +346,13 @@ class Product
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate(){
+        $this->setUpdatedAt(new \Datetime());
     }
 }
 

@@ -34,7 +34,8 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "friendsofsymfony/oauth-server-bundle": "^1.5",
         "willdurand/hateoas-bundle": "^1.2",
-        "nelmio/api-doc-bundle": "^2.13"
+        "nelmio/api-doc-bundle": "^2.13",
+        "doctrine/doctrine-fixtures-bundle": "^2.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
