@@ -29,7 +29,7 @@ Enfin, ajoutez les fixtures :
 
     php bin/console doctrine:fixtures:load
 
-## 4. Créez un user et lancez la commande de création de tricks
+## 4. Créez un user et lancez la commande de création d'un client OAuth
 Il va falloir créer un user , pour cela, lancez la commande suivante :
 
     php bin/console fos:user:create

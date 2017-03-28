@@ -92,6 +92,11 @@ jms_serializer:
         datetime:
             default_format: "Y-m-d\\TH:i:sP"
             default_timezone: "UTC"
+    metadata:
+        directories:
+            FOSUB:
+                namespace_prefix: "FOS\\UserBundle"
+                path: "%kernel.root_dir%/serializer/FOSUB"
 
 fos_oauth_server:
     db_driver: orm
