@@ -15,7 +15,7 @@ Avec Composer bien évidemment :
 
 On vous demande à la fin de l'installation de définir les paramètres de l'application (database et mailer), complétez les informations demandées et validez.
 
-*Attention, n'oubliez pas de remplir les paramètres du mailer afin de recevoir les identifiants OAuth par mail ainsi que la version du serveur que vous utilisez.*
+*Attention, n'oubliez pas de remplir les paramètres du mailer afin de recevoir les identifiants OAuth par mail ainsi que la version du serveur mysql que vous utilisez.*
 ## 3. Créez la base de données
 Si la base de données que vous avez renseignée dans l'étape 2 n'existe pas déjà, créez-la :
 
@@ -66,10 +66,10 @@ Faites une requête de type `GET /products` et ajoutez le header suivant :
 
     Authorization : Bearer VotreAccessToken
 
-Vous voilà authentifier ! Vous pouvez maintenant utiliser l'API, pour cela il y a une documentation que vous trouverez à cette adresse `localhost/web/doc`.
+Vous voilà authentifier !
 
 ## 7. Explorez l'API
-Pour cela, vous pouvez consultez la doc à l'adresse /doc.
+Vous pouvez maintenant utiliser l'API, pour cela il y a une documentation que vous trouverez à cette adresse `/doc`.
 
 Votre access token expire au bout d'une heure. Il faudra donc refaire une demande en faisant une requête à cette adresse `POST /oauth/v2/token` avec les paramètres suivants :
 
