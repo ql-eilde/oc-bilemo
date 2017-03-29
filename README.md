@@ -11,11 +11,11 @@ This is the public repository of my 7th project on OpenClassrooms. The goal of t
 ## 2. Télécharger les vendors et définir les paramètres d'application
 Avec Composer bien évidemment :
 
-    php composer.phar install
+    composer install
 
 On vous demande à la fin de l'installation de définir les paramètres de l'application (database et mailer), complétez les informations demandées et validez.
 
-*Attention, n'oubliez pas de remplir les paramètres du mailer afin de recevoir les identifiants OAuth par mail.*
+*Attention, n'oubliez pas de remplir les paramètres du mailer afin de recevoir les identifiants OAuth par mail ainsi que la version du serveur que vous utilisez.*
 ## 3. Créez la base de données
 Si la base de données que vous avez renseignée dans l'étape 2 n'existe pas déjà, créez-la :
 
@@ -45,7 +45,7 @@ Vous recevrez alors sur l'adresse email indiquée en paramètre de la commande v
 ## 5. Obtenez un access token pour l'API
 Avec Postman.
 
-Faites une requête de type `POST localhost/web/oauth/v2/token` avec les paramètres suivant dans l'onglet 'Body' (c'est du json) :
+Faites une requête de type `POST /oauth/v2/token` avec les paramètres suivant dans l'onglet 'Body' (en json) :
 
     {
     	"grant_type": "password",
@@ -57,15 +57,27 @@ Faites une requête de type `POST localhost/web/oauth/v2/token` avec les paramè
 
 N'oubliez pas de sélectionnez le format 'raw' et indiquer que l'on envoie du JSON (application/json).
 
-Vous recevrez en retour un access token ainsi qu'un refresh token qu'il faudra garder quelque part.
+Vous recevrez en retour un access token ainsi qu'un refresh token qu'il faudra conserver dans un fichier txt par exemple.
 
 ## 6. Connectez vous à l'API avec votre access token
 Avec Postman.
 
-Faites une requête de type `GET localhost/web/products` et ajoutez le header suivant :
+Faites une requête de type `GET /products` et ajoutez le header suivant :
 
     Authorization : Bearer VotreAccessToken
 
 Vous voilà authentifier ! Vous pouvez maintenant utiliser l'API, pour cela il y a une documentation que vous trouverez à cette adresse `localhost/web/doc`.
+
+## 7. Explorez l'API
+Pour cela, vous pouvez consultez la doc à l'adresse /doc.
+
+Votre access token expire au bout d'une heure. Il faudra donc refaire une demande en faisant une requête à cette adresse `POST /oauth/v2/token` avec les paramètres suivants :
+
+    {
+        "grant_type": "refresh_token",
+        "client_id": "VotreClientId",
+        "client_secret": "VotreClientSecret",
+        "refresh_token": "VotreRefreshToken"
+    }
 
 ## Et profitez !
