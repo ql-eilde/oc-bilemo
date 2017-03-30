@@ -13,7 +13,11 @@ class ProductController extends Controller
     /**
      * @ApiDoc(
      *     description="Récupère la liste des produits",
-     *     output="AppBundle\Entity\Product"
+     *     section="Product",
+     *     output="AppBundle\Entity\Product",
+     *     statusCodes={
+     *         200="Returned when successful"
+     *     },
      * )
      * @Rest\View(statusCode=Response::HTTP_OK)
      */
@@ -34,7 +38,12 @@ class ProductController extends Controller
      *              "description"="Identifiant unique du produit"
      *          }
      *     },
-     *     output="AppBundle\Entity\Product"
+     *     section="Product",
+     *     output="AppBundle\Entity\Product",
+     *     statusCodes={
+     *         200="Returned when product is found",
+     *         404="Returned when product is not found"
+     *     },
      * )
      * @Rest\View(statusCode=Response::HTTP_OK)
      */

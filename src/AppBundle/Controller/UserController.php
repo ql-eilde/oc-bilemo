@@ -19,7 +19,14 @@ class UserController extends Controller
     /**
      * @ApiDoc(
      *     description="Récupère la liste des utilisateurs",
-     *     output="AppBundle\Entity\User"
+     *     section="User",
+     *     output={
+     *         "class"="AppBundle\Entity\User",
+     *         "parsers"={"Nelmio\ApiDocBundle\Parser\JmsMetadataParser"}
+     *     },
+     *     statusCodes={
+     *         200="Returned when successful"
+     *     }
      * )
      * @Rest\View(statusCode=Response::HTTP_OK)
      */
@@ -40,7 +47,15 @@ class UserController extends Controller
      *              "description"="Identifiant unique de l'utilisateur"
      *          }
      *     },
-     *     output="AppBundle\Entity\User"
+     *     section="User",
+     *     output={
+     *         "class"="AppBundle\Entity\User",
+     *         "parsers"={"Nelmio\ApiDocBundle\Parser\JmsMetadataParser"}
+     *     },
+     *     statusCodes={
+     *         200="Returned when the user is found",
+     *         404="Returned when the user is not found"
+     *     },
      * )
      * @Rest\View(statusCode=Response::HTTP_OK)
      */
@@ -57,34 +72,22 @@ class UserController extends Controller
     /**
      * @ApiDoc(
      *     description="Création d'un utilisateur",
-     *     parameters={
-     *          {
-     *              "name"="username",
-     *              "dataType"="string",
-     *              "required"="true",
-     *              "format"="{not blank}, {length: min: 2, max: 180}",
-     *              "description"="Saisir un nom d'utilisateur"
-     *          },
-     *          {
-     *              "name"="email",
-     *              "dataType"="string",
-     *              "required"="true",
-     *              "format"="{not blank}, {length: min: 2, max: 180}, {email address}",
-     *              "description"="Saisir un email"
-     *          },
-     *          {
-     *              "name"="password",
-     *              "dataType"="",
-     *              "required"="true",
-     *              "format"="{not blank}, {length: min: 2, max: 4096}",
-     *              "description"="Saisir un mot de passe"
-     *          }
+     *     section="User",
+     *     input={
+     *         "class"="FOS\UserBundle\Form\Type\RegistrationFormType",
+     *         "name"=""
+     *     },
+     *     statusCodes={
+     *         201="Returned when the user is created",
+     *         400="Returned when error in the payload"
      *     },
      * )
      * @Rest\View()
      */
     public function postUsersAction(Request $request)
     {
+        //TODO : Put this in a service
+
         /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
         $formFactory = $this->get('fos_user.registration.form.factory');
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
