@@ -1,3 +1,5 @@
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/fab54935-c9d1-40e4-8914-78002d1aa870/mini.png)](https://insight.sensiolabs.com/projects/fab54935-c9d1-40e4-8914-78002d1aa870)
+
 Bilemo
 ==========
 
