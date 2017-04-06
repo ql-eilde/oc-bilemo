@@ -2,6 +2,7 @@
 
 namespace AppBundle\User;
 
+use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
@@ -24,7 +25,7 @@ class User
         $this->dispatcher = $dispatcher;
     }
 
-    public function postUser($request)
+    public function postUser(Request $request)
     {
         $user = $this->userManager->createUser();
         $user->setEnabled(true);

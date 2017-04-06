@@ -355,4 +355,3 @@ class Product
         $this->setUpdatedAt(new \Datetime());
     }
 }
-
